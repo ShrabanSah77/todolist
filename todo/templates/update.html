@@ -1,0 +1,30 @@
+{% load static%}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/update.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <h3>✏️ Update Your Task</h3>
+      <form method="POST">
+        {% csrf_token %}
+
+        <label for="id_title">Task Title</label>
+        {{ form.title }}
+
+        <div class="checkbox-field">
+          {{ form.completed }}
+          <label for="id_completed">Mark as Completed</label>
+        </div>
+
+        <button type="submit">💾 Save Changes</button>
+      </form>
+      <a href="/">← Back to Task List</a>
+    </div>
+  </body>
+</html>
